@@ -1306,6 +1306,306 @@ int main() {
     return 0;
 }</pre>
 <p><img alt="" height="300" src="/images/motion_plot.png" width="400"/></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;gd.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+ 
+#define WIDTH 800
+#define HEIGHT 600
+#define SCALE 100
+ 
+void drawResistor(gdImagePtr im, int x1, int y, int width, int height) {
+    int startX = x1 ;
+    int endX = x1 + width ;
+ 
+    // 第一段直线向前走一段
+    gdImageLine(im, startX, y, startX + width / 4 , y, gdImageColorAllocate(im, 0, 0, 255));
+ 
+    // 向上45度
+    gdImageLine(im, startX + width / 4 , y, startX + width / 4 + height / 2 , y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+ 
+    // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2, y - height / 2 , startX + width / 4 + height / 2 + height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+ 
+    // 向上90度
+    gdImageLine(im, startX + width / 4 + height / 2 + height, y + height / 2, startX + width / 4 + height / 2 + 2 * height, y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+ 
+    // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2 + 2 * height , y - height / 2, startX + width / 4 + height / 2 + 3 * height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+ 
+    // 向上90度
+    gdImageLine(im, startX + width / 4 + height / 2 + 3 * height, y + height / 2 , startX + width / 4 + height / 2 + 4 * height, y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+ 
+    // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2 + 4 * height, y - height / 2, startX + width / 4 + height / 2 + 5 * height, y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+ 
+  // 向上45度
+    gdImageLine(im, startX + width / 4 + height / 2 + 5 * height, y + height / 2, startX + width / 4 + height / 2 + 5 * height + height / 2, y, gdImageColorAllocate(im, 0, 0, 255));
+ 
+  gdImageLine(im, startX + width / 4 + height / 2 + 5 * height + height / 2, y, startX + width / 4 + height / 2 + 5 * height + height / 2 +5 , y, gdImageColorAllocate(im, 0, 0, 255));
+   
+ 
+  {
+    int startX = 100;
+  gdImageColorAllocate(im, 0, 0, 255);
+ 
+ 
+    // 第一段直线向前走一段
+    gdImageLine(im, startX, y, startX + width / 4 , y, gdImageColorAllocate(im, 0, 0, 255));
+ 
+    // 向上45度
+    gdImageLine(im, startX + width / 4 , y, startX + width / 4 + height / 2 , y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+ 
+    // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2, y - height / 2 , startX + width / 4 + height / 2 + height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+ 
+    // 向上90度
+    gdImageLine(im, startX + width / 4 + height / 2 + height, y + height / 2, startX + width / 4 + height / 2 + 2 * height, y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+ 
+    // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2 + 2 * height , y - height / 2, startX + width / 4 + height / 2 + 3 * height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+ 
+    // 向上45度
+      gdImageLine(im, startX + width / 4 + height / 2 + 3 * height, y + height / 2, startX + width / 4 + height / 2 + 3 * height + height / 2, y, gdImageColorAllocate(im, 0, 0, 255));
+ 
+    gdImageLine(im, startX + width / 4 + height / 2 + 3 * height + height / 2, y, startX + width / 4 + height / 2 + 3 * height + height / 2 +5 , y, gdImageColorAllocate(im, 0, 0, 255));
+ }
+ 
+  {
+    int startX = 585;
+  gdImageColorAllocate(im, 0, 0, 255);
+ 
+ 
+    // 第一段直线向前走一段
+    gdImageLine(im, startX, y, startX + width / 4 , y, gdImageColorAllocate(im, 0, 0, 255));
+ 
+    // 向上45度
+    gdImageLine(im, startX + width / 4 , y, startX + width / 4 + height / 2 , y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+     
+  // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2, y - height / 2 , startX + width / 4 + height / 2 + height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+ 
+    // 向上90度
+    gdImageLine(im, startX + width / 4 + height / 2 + height, y + height / 2, startX + width / 4 + height / 2 + 2 * height, y - height / 2, gdImageColorAllocate(im, 0, 0, 255));
+        // 向下90度
+    gdImageLine(im, startX + width / 4 + height / 2 + 2 * height , y - height / 2, startX + width / 4 + height / 2 + 3 * height , y + height / 2, gdImageColorAllocate(im, 0, 0, 255));
+ 
+    // 向上45度
+      gdImageLine(im, startX + width / 4 + height / 2 + 3 * height, y + height / 2, startX + width / 4 + height / 2 + 3 * height + height / 2, y, gdImageColorAllocate(im, 0, 0, 255));
+     
+    gdImageLine(im, startX + width / 4 + height / 2 + 3 * height + height / 2, y, startX + width / 4 + height / 2 + 3 * height + height / 2 +5 , y, gdImageColorAllocate(im, 0, 0, 255));
+     
+    gdImageLine(im, 100, y +20, 700, y +20, gdImageColorAllocate(im, 0, 255, 0));
+ 
+}
+}
+   
+int main() {
+    gdImagePtr im;
+    FILE *outputFile;
+ 
+    // 创建图像对象
+    im = gdImageCreateTrueColor(WIDTH, HEIGHT);
+    if (im == NULL) {
+        fprintf(stderr, "Error creating GD image.\n");
+        return 1;
+    }
+ 
+    outputFile = fopen("1.png", "wb");
+    if (outputFile == NULL) {
+        fprintf(stderr, "Error opening the output file.\n");
+        return 1;
+    }
+ 
+    int black, white, red, blue, green;
+ 
+    black = gdImageColorAllocate(im, 0, 0, 0);
+    white = gdImageColorAllocate(im, 255, 255, 255);
+    red = gdImageColorAllocate(im, 255, 0, 0);
+    blue = gdImageColorAllocate(im, 0, 0, 255);
+green = gdImageColorAllocate(im, 0, 255, 0);
+    gdImageFilledRectangle(im, 0, 0, WIDTH - 1, HEIGHT - 1, white);
+ 
+    // 绘制墙面
+    gdImageLine(im, SCALE, SCALE, SCALE, HEIGHT - SCALE, black);
+    gdImageLine(im, WIDTH - SCALE, SCALE, WIDTH - SCALE, HEIGHT - SCALE, black);
+ 
+// 绘制彈簧
+    drawResistor(im, WIDTH / 3 + SCALE / 2, HEIGHT / 2, SCALE / 2, SCALE / 4);
+   
+    // 绘制质量（方形）
+    gdImageFilledRectangle(im, WIDTH / 3 - SCALE / 2, HEIGHT / 2 - SCALE / 2, WIDTH / 3 + SCALE / 2, HEIGHT / 2 + SCALE / 2, red);
+    gdImageFilledRectangle(im, WIDTH * 2 / 3 - SCALE / 2, HEIGHT / 2 - SCALE / 2, WIDTH * 2 / 3 + SCALE / 2, HEIGHT / 2 + SCALE / 2, red);
+ 
+  gdImageFilledRectangle(im, 100, HEIGHT +300, 700, HEIGHT /2 +49 , black);
+ 
+     
+ 
+    gdImagePng(im, outputFile);
+    fclose(outputFile);
+    gdImageDestroy(im);
+ 
+    return 0;
+}</pre>
+<p><img alt="" height="300" src="/images/1.png" width="400"/></p>
+<h1>ANSIC</h1>
+<p>1.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main()  
+{
+    // Print Name
+    printf("Name   : Alexandra Abramov\n"); 
+
+    // Print Date of Birth
+    printf("DOB    : July 14, 1975\n"); 
+
+    // Print Mobile Number
+    printf("Mobile : 99-9999999999\n"); 
+
+    // Indicate successful execution
+    return(0); 
+}</pre>
+<p><img alt="" height="87" src="/images/1c.PNG" width="230"/></p>
+<p>2.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main(int argc, char** argv) {
+    // Check for C standard version
+    #if __STDC_VERSION__ &gt;=  201710L
+        printf("We are using C18!\n");
+    #elif __STDC_VERSION__ &gt;= 201112L
+        printf("We are using C11!\n");
+    #elif __STDC_VERSION__ &gt;= 199901L
+        printf("We are using C99!\n");
+    #else
+        printf("We are using C89/C90!\n");
+    #endif
+
+    // Indicate successful execution
+    return 0;
+}</pre>
+<p><img alt="" height="49" src="/images/2c.PNG" width="237"/></p>
+<p>3.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() 
+{
+    // Print a line of hashes
+    printf("######\n");
+
+    // Print a single hash
+    printf("#\n");
+
+    // Print a single hash
+    printf("#\n");
+
+    // Print a line of hashes
+    printf("#####\n");
+
+    // Print a single hash
+    printf("#\n");
+
+    // Print a single hash
+    printf("#\n");
+
+    // Print a single hash
+    printf("#\n");
+
+    return(0);
+}</pre>
+<p><img alt="" height="144" src="/images/3c.PNG" width="240"/></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() 
+{
+    // Print top line of pattern
+    printf("    ######\n");
+
+    // Print second line of pattern
+    printf("  ##      ##\n");
+
+    // Print lines 3 to 7 of pattern
+    printf(" #\n");
+    printf(" #\n");
+    printf(" #\n");
+    printf(" #\n");
+    printf(" #\n");
+
+    // Print bottom line of pattern
+    printf("  ##      ##\n");
+
+    // Print last line of pattern
+    printf("    ######\n");
+
+    return(0);
+}</pre>
+<p><img alt="" height="182" src="/images/3-2c.PNG" width="262"/></p>
+<p>4.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() 
+{
+    // Declare and initialize character variables
+    char char1 = 'X';
+    char char2 = 'M';
+    char char3 = 'L';
+
+    // Print the original and reversed characters
+    printf("The reverse of %c%c%c is %c%c%c\n",
+        char1, char2, char3,
+        char3, char2, char1);
+
+    return(0);
+}</pre>
+<p><img alt="" height="49" src="/images/4c.PNG" width="233"/></p>
+<p>5.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt; 
+
+/* 
+   Variables to store the width and height of a rectangle in inches 
+*/
+int width;          
+int height;         
+
+int area;           /* Variable to store the area of the rectangle */
+int perimeter;      /* Variable to store the perimeter of the rectangle */
+
+int main() {
+    /* Assigning values to height and width */
+  height = 7;
+  width = 5;
+
+    /* Calculating the perimeter of the rectangle */
+    perimeter = 2*(height + width);
+  printf("Perimeter of the rectangle = %d inches\n", perimeter);
+
+    /* Calculating the area of the rectangle */
+  area = height * width;
+  printf("Area of the rectangle = %d square inches\n", area);
+
+    return(0);
+}</pre>
+<p><img alt="" height="67" src="/images/5c.PNG" width="328"/></p>
+<p>6.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() {
+   int radius;      /* Variable to store the radius of the circle */
+   float area, perimeter;    /* Variables to store the area and perimeter of the circle */ 
+   radius = 6;      /* Assigning a value to the radius */
+
+   /* Calculating the perimeter of the circle */
+   perimeter = 2 * 3.14 * radius;
+   printf("Perimeter of the Circle = %f inches\n", perimeter);
+
+   /* Calculating the area of the circle */
+   area = 3.14 * radius * radius;
+   printf("Area of the Circle = %f square inches\n", area);
+
+   return(0);
+}</pre>
+<p><img alt="" height="69" src="/images/6c.PNG" width="375"/></p>
 <h1>Brython</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
