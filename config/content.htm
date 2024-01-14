@@ -1933,6 +1933,41 @@ void swap(int *p, int *q) {
     *q = tmp;
 }</pre>
 <p><img alt="" height="171" src="/images/A6c.PNG" width="396"/></p>
+<p>7.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+ 
+int checkOddEven(int n1)
+{   
+    return (n1 &amp; 1);
+}
+ 
+int main()
+{
+    int n1;
+    int scanfResult; // 儲存 scanf 函式的返回值
+ 
+    printf("\n\n 函式：檢查數字是奇數還是偶數：\n");
+    printf("------------------------------------------------\n");
+ 
+    printf("輸入任意數字：");
+    scanfResult = scanf("%d", &amp;n1); // 儲存 scanf 函式的返回值
+ 
+    if (scanfResult != 1) {
+        printf("無效的輸入。\n");
+        return 1; // 適當的錯誤處理
+    }
+ 
+    if(checkOddEven(n1))
+    {
+        printf("輸入的數字是奇數。\n\n");
+    }
+    else
+    {
+        printf("輸入的數字是偶數。\n\n");
+    }
+    return 0;
+}</pre>
+<p></p>
 <h1>Brython</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
