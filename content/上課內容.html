@@ -290,6 +290,35 @@ int main()
     return 0; // 返回0表示程式正常結束
 }</pre>
 <p><img alt="" height="82" src="./../images/A4c.PNG" width="303"/></p>
+<p>5.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+double square(double num) {
+    return (num * num);
+}
+
+int main() {
+    int num;
+    double n;
+    int scanfResult; // 變數用於儲存 scanf 的返回值
+
+    printf("\n\n 函式：計算任意數字的平方值 :\n");
+    printf("------------------------------------------------\n");
+
+    printf("輸入任意數字以計算平方值：");
+    scanfResult = scanf("%d", &amp;num); // 將 scanf 的返回值儲存在變數中
+
+    if (scanfResult != 1) {
+        printf("輸入錯誤或無效的數字。\n");
+        return 1; // 適當的錯誤處理
+    }
+
+    n = square(num);
+    printf("%d 的平方是：%.2f\n", num, n);
+
+    return 0;
+}</pre>
+<p></p>
 <br />Ex.1 << <a href='Ex.1.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython</div>
         
     <!-- footer -->
