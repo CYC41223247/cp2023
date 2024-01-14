@@ -1718,6 +1718,52 @@ int main() {
 }
 </pre>
 <h4><img alt="" height="81" src="/images/10c.PNG" width="307"/></h4>
+<h2>上課內容</h2>
+<p>1.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() 
+{
+    double wi1, ci1, wi2, ci2, result; // 宣告變數表示重量和數量
+
+    // 提示使用者輸入 item 1 的重量
+    printf("Weight - Item1: ");
+    if (scanf("%lf", &amp;wi1) != 1) { // 讀取並檢查輸入值
+        printf("Error: Please enter a valid number.\n"); // 如果輸入無效，輸出錯誤訊息
+        return 1; // 返回非零值表示程式出錯
+    }
+
+    // 提示使用者輸入 item 1 的數量
+    printf("No. of item1: ");
+    if (scanf("%lf", &amp;ci1) != 1) { // 讀取並檢查輸入值
+        printf("Error: Please enter a valid number.\n"); // 如果輸入無效，輸出錯誤訊息
+        return 1; // 返回非零值表示程式出錯
+    }
+
+    // 提示使用者輸入 item 2 的重量
+    printf("Weight - Item2: ");
+    if (scanf("%lf", &amp;wi2) != 1) { // 讀取並檢查輸入值
+        printf("Error: Please enter a valid number.\n"); // 如果輸入無效，輸出錯誤訊息
+        return 1; // 返回非零值表示程式出錯
+    }
+
+    // 提示使用者輸入 item 2 的數量
+    printf("No. of item2: ");
+    if (scanf("%lf", &amp;ci2) != 1) { // 讀取並檢查輸入值
+        printf("Error: Please enter a valid number.\n"); // 如果輸入無效，輸出錯誤訊息
+        return 1; // 返回非零值表示程式出錯
+    }
+
+    // 計算平均值
+    result = ((wi1 * ci1) + (wi2 * ci2)) / (ci1 + ci2);
+
+    // 輸出平均值
+    printf("Average Value = %f\n", result);
+
+    return 0; // 返回零表示程式正常結束
+}
+</pre>
+<p><img alt="" height="113" src="/images/A1c.PNG" width="315"/></p>
 <h1>Brython</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
