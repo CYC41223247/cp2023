@@ -214,6 +214,48 @@ int main() {
 }
 </pre>
 <p><img alt="" height="50" src="./../images/A2c.PNG" width="354"/></p>
+<p>3.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    int x, y, z, result, max; // 宣告變數
+
+    // 提示用戶輸入第一個整數並存儲在 'x' 中
+    printf("\nInput the first integer: ");
+    if (scanf("%d", &amp;x) != 1) { // 檢查 scanf 的返回值
+        printf("Error: Please enter a valid integer.\n");
+        return 1; // 返回1表示出錯
+    }
+
+    // 提示用戶輸入第二個整數並存儲在 'y' 中
+    printf("\nInput the second integer: ");
+    if (scanf("%d", &amp;y) != 1) { // 檢查 scanf 的返回值
+        printf("Error: Please enter a valid integer.\n");
+        return 1; // 返回1表示出錯
+    }
+
+    // 提示用戶輸入第三個整數並存儲在 'z' 中
+    printf("\nInput the third integer: ");
+    if (scanf("%d", &amp;z) != 1) { // 檢查 scanf 的返回值
+        printf("Error: Please enter a valid integer.\n");
+        return 1; // 返回1表示出錯
+    }
+
+    // 計算結果
+    result = (x + y + abs(x - y)) / 2;
+
+    // 計算最大值
+    max = (result + z + abs(result - z)) / 2;
+
+    // 輸出最大值
+    printf("\nMaximum value of three integers: %d\n", max);
+
+    return 0; // 返回0表示程式正常結束
+}
+</pre>
+<p></p>
 <br />Ex.1 << <a href='Ex.1.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython</div>
         
     <!-- footer -->
