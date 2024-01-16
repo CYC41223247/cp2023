@@ -2286,6 +2286,27 @@ int main()
  return 0;
 }</pre>
 <p><img alt="" height="125" src="/images/ex2-4.PNG" width="250"/></p>
+<p>5.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#define _CRT_SECURE_NO_WARNINGS
+#include&lt;stdio.h&gt;
+/* demonstrate a do loop */
+main()
+{
+ float this_is_a_number, total;
+ int i;
+ total = 0;
+ i = 0;
+ /* do loop goes round until the value of i reaches 10 */
+ do {
+ printf("Please enter a number:\n ");
+ scanf("%f", &amp;this_is_a_number);
+ total = total + this_is_a_number;
+ i++;
+ }while( i &lt; 10);
+ printf("Total Sum is = %f\n", total);
+}
+</pre>
+<p></p>
 <h1>Brython</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
