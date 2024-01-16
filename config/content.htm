@@ -2373,8 +2373,8 @@ entered was not between 1 and 5 */
       }
     return 0;
    }</pre>
-<p><img alt="" height="70" src="/images/ex2-7.PNG" width="329"/></p>
-<br/><br/><span>P</span><span>ractise</span>
+<p><br/><br/><img alt="" height="70" src="/images/ex2-7.PNG" width="329"/></p>
+<h2>PS</h2>
 <p><span>ps1.</span>計算階層</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
  
@@ -2389,6 +2389,26 @@ int main(){
  
     printf("%d 的階乘是：%d\n", num, f);  // 印出計算得到的階乘。
     return 0;  // 表示程式成功執行。
+}</pre>
+<p><img alt="" height="74" src="/images/11c.PNG" width="230"/></p>
+<p>ps2.計算閏年</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+ 
+void main()
+{
+    int chk_year;   // 宣告一個整數變數 'chk_year'。
+ 
+    printf("輸入一個年份：");   // 提示使用者輸入年份。
+    scanf("%d", &amp;chk_year);   // 讀取並儲存使用者輸入的年份於 'chk_year'。
+ 
+    if ((chk_year % 400) == 0)   // 檢查 'chk_year' 是否能被400整除且沒有餘數。
+        printf("%d 年是閏年。\n", chk_year);   // 印出 'chk_year' 是閏年的訊息。
+    else if ((chk_year % 100) == 0)   // 檢查 'chk_year' 是否能被100整除且沒有餘數。
+        printf("%d 年不是閏年。\n", chk_year);   // 印出 'chk_year' 不是閏年的訊息。
+    else if ((chk_year % 4) == 0)   // 檢查 'chk_year' 是否能被4整除且沒有餘數。
+        printf("%d 年是閏年。\n", chk_year);   // 印出 'chk_year' 是閏年的訊息。
+    else
+        printf("%d 年不是閏年。\n", chk_year);   // 印出 'chk_year' 不是閏年的訊息。
 }</pre>
 <p></p>
 <h1>Brython</h1>
